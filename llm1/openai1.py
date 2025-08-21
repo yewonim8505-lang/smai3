@@ -1,4 +1,4 @@
-from myllm.myapi import openAiModelArg, makeMsg
+from llm2 import openAiModelArg, makeMsg
 
 
 def test():

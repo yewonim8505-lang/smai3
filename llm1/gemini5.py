@@ -1,25 +1,13 @@
-import google.generativeai as genai
+from llm2 import geminiModel
 
+def test(prompt):
+    model = geminiModel()
+    response = model.generate_content(prompt)
+    print(response.text)
 
-from dotenv import load_dotenv
-import os
+if __name__ == '__main__':
+    question = "인공지능이란 무엇인가요?"
 
-import PIL.Image
+    prompt = f"'{question}'에 대해 설명해 줘."
 
-
-
-load_dotenv()
-
-GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=GOOGLE_API_KEY)
-
-model = genai.GenerativeModel("gemini-2.0-flash")
-
-korean_text = "안녕하세요, Gemini를 사용하여 파이썬 프로그램을 개발하는 방법에 대해 배우고 있습니다."
-
-prompt = f"다음 한국어 문장을 영어로 번역해 줘:\n\n{korean_text}"
-
-response = model.generate_content(prompt)
-
-print("\n--- 번역 ---")
-print(response.text)
+    test(prompt)

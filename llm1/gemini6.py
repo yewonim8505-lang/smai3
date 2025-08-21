@@ -1,4 +1,4 @@
-from myllm.myapi import geminimodel
+from llm2 import geminimodel
 
 
 def test(prompt):
